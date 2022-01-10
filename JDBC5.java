@@ -2,7 +2,7 @@ package milan.lab.report;
 
 import java.sql.*;
 
-class JDBC45 {
+class JDBC5 {
 	public static void main(String[] args) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -10,18 +10,18 @@ class JDBC45 {
 			String un = "root";
 			String pw = "";
 			Connection cn = DriverManager.getConnection(url, un, pw);
-			updateAll(cn);
+			deleteAll(cn);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 
-	private static void updateAll(Connection cn) throws SQLException {
+	private static void deleteAll(Connection cn) throws SQLException {
 		Statement stat = cn.createStatement(); // statment create
 
-		String query = "update student set course = 'BCA'";
+		String query = "delete from student";
 		stat.executeUpdate(query); // execute query
 
-		System.out.println("Record updated!");
+		System.out.println("All Record deleted!");
 	}
 }
